@@ -21,7 +21,7 @@ const getFavController = async (req, res) => {
       return res.status(400).json({ error: "Please provide a user_id" });
     }
 
-    
+
     let query =
       "SELECT items.* FROM items JOIN favourites ON items.item_id = favourites.item_id";
 
@@ -33,9 +33,9 @@ const getFavController = async (req, res) => {
       query += ` AND items.item_name ILIKE '%${req.query.search}%'`;
     }
 
-    if (req.query.sortOrder) {
-      const sortOrder = req.query.sortOrder === "desc" ? "DESC" : "ASC";
-      query += ` ORDER BY ${sortOrder}`;
+        if (req.query.sortOrder) {
+      const sortOrder = req.query.sortOrder.toUpperCase() === "DESC" ? "DESC" : "ASC";
+      query += ` ORDER BY items.price ${sortOrder}`;
     }
 
     if (req.query.priceRange) {

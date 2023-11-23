@@ -18,3 +18,8 @@ the user
 http://localhost:5000/fav?user_id=1&search=a&priceRange=0-250 --> to filter id 
 
 price and search
+
+
+http://localhost:5000/fav?user_id=1&sortOrder=desc --> to sort using price by 
+
+using desc and asc
