@@ -31,6 +31,8 @@ using desc and asc
 
 http://localhost:5000/rating --> to display overall rating for all items
 
+
+
 - display-canceled-one:
 
 http://localhost:5000/cancel?user_id=4 --> to display cancel by using user_id
@@ -42,3 +44,7 @@ http://localhost:5000/cancel?user_id=4&priceRange=1-15 --> to display cancelled 
 http://localhost:5000/cancel?user_id=4&priceRange=1-15&search=cook --> search in canceled by using 
 
 name of iteams
+
+http://localhost:5000/cancel?user_id=4&sortOrder=asc --> this is used to sort by 
+
+using price range

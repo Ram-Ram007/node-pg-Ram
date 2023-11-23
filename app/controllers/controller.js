@@ -86,6 +86,13 @@ const cancelListController = async (req, res) => {
       query += ` AND items.item_name ILIKE '%${req.query.search}%'`;
     }
 
+
+    if (req.query.sortOrder) {
+      const sortOrder = req.query.sortOrder.toUpperCase() === "DESC" ? "DESC" : "ASC";
+      query += ` ORDER BY items.price ${sortOrder}`;
+    }
+
+
     if (req.query.priceRange) {
       const priceRanges = req.query.priceRange.split("-");
       const minPrice = parseFloat(priceRanges[0]);
