@@ -48,3 +48,11 @@ name of iteams
 http://localhost:5000/cancel?user_id=4&sortOrder=asc --> this is used to sort by 
 
 using price range
+
+
+update order into cancel:
+
+{
+  "status": "Cancelled",
+  "purchaseid": "10"
+}

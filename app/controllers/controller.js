@@ -1,5 +1,7 @@
 const pgClient = require("../pg-config");
 
+
+// update to cancel
 const updateStatusController = async function (req, res) {
   const queryText =
     "UPDATE purcharse SET status=$1 WHERE purchase_id=$2 RETURNING purchase_id, status";
