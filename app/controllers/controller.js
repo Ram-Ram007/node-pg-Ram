@@ -46,9 +46,11 @@ const getFavController = async (req, res) => {
     // Adding sorting by price range
     //http://localhost:5001/fav?priceRange=0-500
 
-    if (req.query.priceRange) {
+    if (req.query.user_id.priceRange) {
       query =
         "SELECT items.* FROM items JOIN favourites ON items.item_id = favourites.item_id";
+        
+      const userId = req.query.user_id;
       const priceRanges = req.query.priceRange.split("-");
       const minPrice = parseFloat(priceRanges[0]);
       const maxPrice = parseFloat(priceRanges[1]);
