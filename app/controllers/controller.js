@@ -12,8 +12,16 @@ const updateStatusController = async function (req, res) {
     rows: pgRes.rows,
     count: pgRes.rowCount,
   });
-};const getFavController = async (req, res) => {
+};
+
+const getFavController = async (req, res) => {
   try {
+
+    if (!req.query.user_id) {
+      return res.status(400).json({ error: "Please provide a user_id" });
+    }
+
+    
     let query =
       "SELECT items.* FROM items JOIN favourites ON items.item_id = favourites.item_id";
 

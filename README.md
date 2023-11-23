@@ -14,3 +14,7 @@ letter
 http://localhost:5000/fav?user_id=2&priceRange=0-25 --> used to filter rating by 
 
 the user
+
+http://localhost:5000/fav?user_id=1&search=a&priceRange=0-250 --> to filter id 
+
+price and search
