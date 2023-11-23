@@ -50,7 +50,7 @@ http://localhost:5000/cancel?user_id=4&sortOrder=asc --> this is used to sort by
 using price range
 
 
-update order into cancel:
+- update order into cancel:
 
 http://localhost:5000/update --> to change value
 
