@@ -72,14 +72,26 @@ const overallRatingController = async (req, res) => {
 
 const cancelListController = async (req, res) => {
   try {
-    let query = "SELECT * FROM purcharse WHERE status = 'Cancelled'";
+    if (!req.query.user_id) {
+      return res.status(400).json({ error: "Please provide a user_id" });
+    }
+
+    let query = "SELECT purcharse.*, items.item_name FROM purcharse JOIN items ON purcharse.item_id = items.item_id WHERE purcharse.status = 'Cancelled'";
+
+    if (req.query.user_id) {
+      query += ` AND purcharse.user_id = ${req.query.user_id}`;
+    }
+
+    if (req.query.search) {
+      query += ` AND items.item_name ILIKE '%${req.query.search}%'`;
+    }
 
     if (req.query.priceRange) {
       const priceRanges = req.query.priceRange.split("-");
       const minPrice = parseFloat(priceRanges[0]);
       const maxPrice = parseFloat(priceRanges[1]);
 
-      query += " AND purcharse.price BETWEEN $1 AND $2";
+      query += ` AND purcharse.price BETWEEN $1 AND $2`;
 
       const pgRes = await pgClient.query(query, [minPrice, maxPrice]);
       res.json({
@@ -98,6 +110,7 @@ const cancelListController = async (req, res) => {
     res.status(500).json({ error: "Internal server error" });
   }
 };
+
 module.exports = {
   updateStatusController,
   getFavController,
