@@ -14,6 +14,8 @@ const updateStatusController = async function (req, res) {
   });
 };
 
+
+// fav
 const getFavController = async (req, res) => {
   try {
 
@@ -70,6 +72,7 @@ const overallRatingController = async (req, res) => {
   });
 };
 
+//cancel
 const cancelListController = async (req, res) => {
   try {
     if (!req.query.user_id) {
