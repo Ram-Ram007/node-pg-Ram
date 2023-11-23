@@ -52,6 +52,9 @@ using price range
 
 update order into cancel:
 
+http://localhost:5000/update --> to change value
+
+raw:
 {
   "status": "Cancelled",
   "purchaseid": "10"
