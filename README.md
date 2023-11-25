@@ -1,6 +1,5 @@
 # node-pg
 
-# postman-collection:
 
 - Fav-part
 
