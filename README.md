@@ -56,5 +56,5 @@ http://localhost:5000/update --> to change value
 raw:
 {
   "status": "Cancelled",
-  "purchaseid": "10"
+  "purchaseid": "5"
 }
